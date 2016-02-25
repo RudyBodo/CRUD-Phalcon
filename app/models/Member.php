@@ -46,6 +46,23 @@ class Member extends \Phalcon\Mvc\Model
      *
      * @return boolean
      */
+    public function validation()
+    {
+        $this->validate(
+            new Email(
+                array(
+                    'field'    => 'email',
+                    'required' => true,
+                )
+            )
+        );
+
+        if ($this->validationHasFailed() == true) {
+            return false;
+        }
+
+        return true;
+    }
 
     /**
      * Initialize method for model.
@@ -60,4 +77,31 @@ class Member extends \Phalcon\Mvc\Model
      *
      * @return string
      */
+    public function getSource()
+    {
+        return 'member';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Member[]
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Member
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
+    }
+
 }
