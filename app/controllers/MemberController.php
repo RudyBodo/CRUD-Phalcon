@@ -11,7 +11,17 @@ class MemberController extends ControllerBase
 
   public function addAction()
   {
-
+    $member = new Member();
+    $member ->name = $this ->request ->getPost("nama");
+    $member ->address = $this ->request ->getPost("address");
+    $member ->email = $this ->request ->getPost("email");
+    $member ->phonenumber = $this ->request ->getPost("phonenumber");
+    if (!$member->save()) {
+      echo "Data not save";
+    }
+    else {
+      echo "Data Save";
+    }
   }
 
   public function editAction()
