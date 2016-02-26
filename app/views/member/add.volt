@@ -1,17 +1,17 @@
 <div class="page-header">
   <h1>Add Data</h1>
-{{ form('/add', 'role': 'form') }}
+{{ form("member/add/") }}
   <label for="name">Name </label>
-  <input type="text" name="name">
+  <input type="text" name="Name">
 
   <label for="name">Address </label>
-  <input type="text" name="address">
+  <input type="text" name="Address">
 
   <label for="name">Email </label>
-  <input type="email" name="email">
+  <input type="email" name="Email">
 
   <label for="name">Number Phone </label>
-  <input type="text" name="phonenumber">
+  <input type="text" name="Phonenumber">
 
 <button type="submit">Add</button>
 </form>

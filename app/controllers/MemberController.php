@@ -5,17 +5,18 @@ class MemberController extends ControllerBase
 
   public function indexAction()
   {
-    $member = Member::find();
-    $this ->view ->data = $member;
+
+    $this->view->data = Member::find();
   }
 
   public function addAction()
   {
+
     $member = new Member();
-    $member ->name = $this ->request ->getPost("nama");
-    $member ->address = $this ->request ->getPost("address");
-    $member ->email = $this ->request ->getPost("email");
-    $member ->phonenumber = $this ->request ->getPost("phonenumber");
+    $member ->name = $this ->request ->getPost("Nama");
+    $member ->address = $this ->request ->getPost("Address");
+    $member ->email = $this ->request ->getPost("Email");
+    $member ->phonenumber = $this ->request ->getPost("Phonenumber");
     if (!$member->save()) {
       echo "Data not save";
     }
