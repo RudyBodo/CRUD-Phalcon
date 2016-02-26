@@ -9,6 +9,7 @@ class MemberController extends ControllerBase
     $this->view->data = Member::find();
   }
 
+
   public function addAction()
   {
 
@@ -18,8 +19,10 @@ class MemberController extends ControllerBase
     $member ->email = $this ->request ->getPost("Email");
     $member ->phonenumber = $this ->request ->getPost("Phonenumber");
 
-    if (!$member->save()) {
-      foreach ($member->getMessages() as $e) echo $e->getMessage . PHP_EOL;
+    if ($member->save() == false) {
+      foreach ($member->getMessages() as $e){
+      echo e;
+      }
     }
 }
 
