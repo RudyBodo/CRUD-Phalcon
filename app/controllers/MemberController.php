@@ -17,13 +17,11 @@ class MemberController extends ControllerBase
     $member ->address = $this ->request ->getPost("Address");
     $member ->email = $this ->request ->getPost("Email");
     $member ->phonenumber = $this ->request ->getPost("Phonenumber");
+
     if (!$member->save()) {
-      echo "Data not save";
+      foreach ($member->getMessages as $e) echo $e->getMessage() . PHP_EOL;
     }
-    else {
-      echo "Data Save";
-    }
-  }
+}
 
   public function editAction()
   {

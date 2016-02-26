@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>Add Data</h1>
-{{ form("member/add/") }}
+{{ form('member/add/') }}
   <label for="name">Name </label>
   <input type="text" name="Name">
 

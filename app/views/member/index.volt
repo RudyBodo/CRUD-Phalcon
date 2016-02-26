@@ -1,4 +1,5 @@
 <div class="page-header">
+    <a href="member/add"><h2>Add Row</h2></a>
     <h1>List Member</h1>
 </div>
 {% for datas in data %}
