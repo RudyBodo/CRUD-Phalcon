@@ -19,7 +19,7 @@ class MemberController extends ControllerBase
     $member ->phonenumber = $this ->request ->getPost("Phonenumber");
 
     if (!$member->save()) {
-      foreach ($member->getMessages as $e) echo $e->getMessage() . PHP_EOL;
+      foreach ($member->getMessages() as $e) echo $e->getMessage . PHP_EOL;
     }
 }
 
