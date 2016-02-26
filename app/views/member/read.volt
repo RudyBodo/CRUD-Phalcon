@@ -2,8 +2,7 @@
     <a href="create/"><h2>Add Row</h2></a>
     <h1>List Member</h1>
 </div>
-{% for datas in data %}
-{% if loop.first %}
+{% if id %}
 <table class="table">
     <thead>
       <tr>
@@ -13,18 +12,13 @@
         <th>Phone Number</th>
       </tr>
     </thead>
-  {% endif %}
     <tbody>
-      <tr>
-        <td>{{ datas.name }}</td>
-        <td>{{ datas.address }}</td>
-        <td>{{ datas.email }}</td>
-        <td>{{ datas.phonenumber }}</td>
-      </tr>
+      <td>data.name</td>
+      <td>data.address</td>
+      <td>data.email</td>
+      <td>data.phonenumber</td>
     </tbody>
-  {% if loop.last %}
-  </table>
-  {% endif %}
-  {% else %}
-  Data Empty
-  {% endfor %}
+</table>
+{% else %}
+  <p>all row</p>
+{% endif %}
