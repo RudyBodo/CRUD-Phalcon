@@ -36,11 +36,52 @@ class Member extends \Phalcon\Mvc\Model
     public $phonenumber;
 
     /**
+     * Validations and business logic
      *
-     * @var integer
+     * @return boolean
      */
-    public $membersocial_id;
+    public function validation()
+    {
+        $this->validate(
+            new Email(
+                array(
+                    'field'    => 'email',
+                    'required' => true,
+                )
+            )
+        );
 
+        if ($this->validationHasFailed() == true) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Initialize method for model.
+     */
+    public function initialize()
+    {
+        $this->hasMany('id', 'Membersocial', 'member_id', array('alias' => 'Membersocial'));
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'member';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Member[]
+     */
     public static function find($parameters = null)
     {
         return parent::find($parameters);

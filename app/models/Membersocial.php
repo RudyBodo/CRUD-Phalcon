@@ -11,6 +11,12 @@ class Membersocial extends \Phalcon\Mvc\Model
 
     /**
      *
+     * @var integer
+     */
+    public $member_id;
+
+    /**
+     *
      * @var string
      */
     public $facebook;
@@ -32,7 +38,7 @@ class Membersocial extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Member', 'membersocial_id', array('alias' => 'Member'));
+        $this->belongsTo('member_id', 'Member', 'id', array('alias' => 'Member'));
     }
 
     /**

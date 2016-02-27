@@ -1,5 +1,6 @@
 <div><h1>Add Data</h1></div>
-<form role="form">
+
+{{ form('member/create', 'method': 'post') }}
   <div class="form-group">
     <label for="Name">Name </label>
     <input type="text" name="name" class="form-control" id="text">

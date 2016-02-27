@@ -13,6 +13,8 @@ class MemberController extends ControllerBase {
         $post = $this->request->getPost();
 
         $member = new Member();
+        $membersocial_id = new Membersocial();
+        $member 
 
         if (!$member->create($post)) {
             $this->view->errors = [];
