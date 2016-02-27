@@ -13,8 +13,6 @@ class MemberController extends ControllerBase {
         $post = $this->request->getPost();
 
         $member = new Member();
-        $membersocial_id = new Membersocial();
-        $member 
 
         if (!$member->create($post)) {
             $this->view->errors = [];
@@ -24,6 +22,19 @@ class MemberController extends ControllerBase {
                     "message"   => $err->getMessage()
                   ]);
         }
+
+        $social = new Membersocial();
+        if(!$social->create($post)){
+          $this ->view->errors = [];
+          foreach ($social->getMessages() as $err)
+            array_push($this->view->errors, [
+              "field" => $err->getField(),
+              "message" => $err->getMessage()
+            ]);
+          }
+
+        $member ->membersocial = $social;
+        $member ->update();
 
         $this->view->data = $member;
         $this->view->msg = "Success";
